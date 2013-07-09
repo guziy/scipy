@@ -1182,41 +1182,11 @@ def mood(x, y, axis=0):
     ----------
     x, y : array_like
         Arrays of sample data.
-<<<<<<< HEAD
     axis: int, optional
         The axis along which the samples are tested.  `x` and `y` can be of
         different length along `axis`.
         If `axis` is None, `x` and `y` are flattened and the test is done on
         all values in the flattened arrays.
-=======
-    axis: the axis along which the samples are tested
-        x and y can be of different length along the dimension = axis
-        Example: if the inputs are of shapes  (n0, n1, n2, n3)  and (n0, m1, n2, n3),
-        then if axis = 1, the resulting z and p values will have the following shape:
-         (n0,n2,n3)
-        if axis is None, flattens both arrays and tests 1d arrays  (behave like mood.test in R)
-
-    Examples
-    --------
-        >>> from scipy.stats import mood
-        >>> import numpy as np
-        >>> x2 = np.random.randn(2, 45, 6, 7)
-        >>> x1 = np.random.randn(2, 30, 6, 7)
-        >>> z, p = mood(x1, x2, axis = 1)
-        >>> p.shape
-        (2, 6, 7)
-        >>> (p > 0.1).sum()  #the number of points where the diff. in scale is not significant
-        74
-
-        Different scales:
-        >>> x1 = np.random.randn(2,30)
-        >>> x2 = np.random.randn(2,35)*10.0
-        >>> mood(x1,x2, axis=1)
-        (array([-5.84332354, -5.6840814 ]), array([  5.11694980e-09,   1.31517628e-08]))
-
-
-
->>>>>>> change for np.concatenate add a doctest example
 
     Returns
     -------
