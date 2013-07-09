@@ -1172,7 +1172,7 @@ def fligner(*args,**kwds):
 
 def mood(x, y, axis=0):
     """
-    Perform Mood's test for equal scale parameters.
+    Perform Mood's test for equal scale parameters.  (generalization to the nd case)
 
     Mood's two-sample test for scale parameters is a non-parametric
     test for the null hypothesis that two samples are drawn from the
@@ -1234,6 +1234,11 @@ def mood(x, y, axis=0):
     >>> x2 = np.random.randn(2, 35) * 10.0
     >>> stats.mood(x1, x2, axis=1)
     (array([-5.84332354, -5.6840814 ]), array([5.11694980e-09, 1.31517628e-08]))
+
+
+    Generalized to the n-dimensional case by adding the axis argument, and using for loops, since rankdata
+    is not vectorized.
+    For improving performance consider vectorizing rankdata function.
 
     """
     x = np.asarray(x, dtype=float)
